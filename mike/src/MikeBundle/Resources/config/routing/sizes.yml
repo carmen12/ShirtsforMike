@@ -1,0 +1,24 @@
+sizes_index:
+    path:     /
+    defaults: { _controller: "MikeBundle:Sizes:index" }
+    methods:  GET
+
+sizes_show:
+    path:     /{id}/show
+    defaults: { _controller: "MikeBundle:Sizes:show" }
+    methods:  GET
+
+sizes_new:
+    path:     /new
+    defaults: { _controller: "MikeBundle:Sizes:new" }
+    methods:  [GET, POST]
+
+sizes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MikeBundle:Sizes:edit" }
+    methods:  [GET, POST]
+
+sizes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MikeBundle:Sizes:delete" }
+    methods:  DELETE

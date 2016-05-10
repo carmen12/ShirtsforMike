@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sizes</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ size.id }}</td>
+            </tr>
+            <tr>
+                <th>Size</th>
+                <td>{{ size.size }}</td>
+            </tr>
+            <tr>
+                <th>Ord</th>
+                <td>{{ size.ord }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sizes_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('sizes_edit', { 'id': size.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

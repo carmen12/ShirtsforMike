@@ -1,0 +1,55 @@
+mike_mike_admin:
+    resource: "@MikeBundle/Resources/config/routing/products.yml"
+    prefix:   /mike_admin
+
+mike_sizes:
+    resource: "@MikeBundle/Resources/config/routing/sizes.yml"
+    prefix:   /sizes
+
+mike_homepage:
+    path:     /
+    defaults: { _controller: MikeBundle:Home:index }
+
+shirts:
+    path: /shirts/{page}
+    defaults: { _controller: MikeBundle:Shirts:get, page: 1 }
+
+shirt:
+    path: /shirt/{id}
+    defaults: { _controller: MikeBundle:Shirt:shirt }
+
+contact:
+    path: /contact/
+    defaults: { _controller: MikeBundle:Contact:new }
+
+search:
+    path: /search/
+    defaults: { _controller: MikeBundle:Search:search }
+
+#add:
+#    path: /database/
+#    defaults: { _controller: MikeBundle:Add:create }
+
+#add2:
+#    path: /sizes/
+#    defaults: { _controller: MikeBundle:AddSizes:createsizes }
+
+#add3:
+#    path: /table3/
+#    defaults: { _controller: MikeBundle:Product_sizes:index}
+
+register:
+    path: /register/
+    defaults: { _controller: MikeBundle:Register:register }
+
+login:
+    path: /login/
+    defaults: { _controller: MikeBundle:Security:login}
+
+logout:
+    path: /logout
+
+profile:
+    path: /profile/
+    defaults: { _controller: MikeBundle:Profile:profile}
+

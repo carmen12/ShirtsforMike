@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Products list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sku</th>
+                <th>Name</th>
+                <th>Img</th>
+                <th>Price</th>
+                <th>Paypal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td><a href="{{ path('mike_admin_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
+                <td>{{ product.sku }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.img }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.paypal }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('mike_admin_show', { 'id': product.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('mike_admin_edit', { 'id': product.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mike_admin_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

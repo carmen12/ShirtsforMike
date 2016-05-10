@@ -1,0 +1,24 @@
+mike_admin_index:
+    path:     /
+    defaults: { _controller: "MikeBundle:Products:index" }
+    methods:  GET
+
+mike_admin_show:
+    path:     /{id}/show
+    defaults: { _controller: "MikeBundle:Products:show" }
+    methods:  GET
+
+mike_admin_new:
+    path:     /new
+    defaults: { _controller: "MikeBundle:Products:new" }
+    methods:  [GET, POST]
+
+mike_admin_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MikeBundle:Products:edit" }
+    methods:  [GET, POST]
+
+mike_admin_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MikeBundle:Products:delete" }
+    methods:  DELETE

@@ -1,0 +1,71 @@
+{% extends 'MikeBundle::base.html.twig' %}
+{% set pageTitle = 'Register' %}
+{% set section = 'register' %}
+
+{% block body %}
+
+    <div class="section page">
+
+        <div class="wrapper">
+            <h1>Register</h1>
+
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <p class="message">{{ flash_message }}</p>
+            {% endfor %}
+
+            {{ form_start(formRegister) }}
+            {{ form_errors(formRegister) }}
+            <table>
+                <tr>
+                    <th>
+                        {{ form_label(formRegister.username) }}
+                    </th>
+                    <td>
+                        {{ form_widget(formRegister.username) }}
+                        {{ form_errors(formRegister.username) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        {{ form_label(formRegister.email) }}
+                    </th>
+                    <td>
+                        {{ form_widget(formRegister.email) }}
+                        {{ form_errors(formRegister.email) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        {{ form_label(formRegister.plainPassword.first) }}
+                    </th>
+                    <td>
+                        {{ form_widget(formRegister.plainPassword.first) }}
+                        {{ form_errors(formRegister.plainPassword.first) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        {{ form_label(formRegister.plainPassword.second) }}
+                    </th>
+                    <td>
+                        {{ form_widget(formRegister.plainPassword.second) }}
+                        {{ form_errors(formRegister.plainPassword.second) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        {{ form_label(formRegister.file) }}
+                    </th>
+                    <td>
+                        {{ form_widget(formRegister.file) }}
+                        {{ form_errors(formRegister.file) }}
+                    </td>
+                </tr>
+
+            </table>
+            {#{{ form_row(form.submit, {'label':'Save'}) }}#}
+            {{ form_end(formRegister) }}
+
+        </div>
+    </div>
+{% endblock %}

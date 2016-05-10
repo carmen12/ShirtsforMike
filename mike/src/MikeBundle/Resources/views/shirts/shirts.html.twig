@@ -1,0 +1,34 @@
+{% set pageTitle = 'Unique T-shirts designed by a frog'%}
+{% set section = 'shirts' %}
+{% extends 'MikeBundle::base.html.twig' %}
+
+{% block body %}
+<div class="section shirts page">
+
+    <div class="wrapper">
+        <h1>Mike&rsquo;s Full Catalog Of Shirts </h1>
+
+        <div class="pagination">
+            {% for i in 1..total_pg %}
+                {% if i == current_page %}
+            <span>{{ i }}</span>
+                {% else %}
+            <a href="{{ path('shirts',{'page':i}) }}">{{ i }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <ul class="products">
+            {% for product in products %}
+                <li>
+                    <a href="{{ path('shirt',{'id':product.sku}) }}">
+                    <img src="{{ asset(product.img)}}" >
+                    <p>View Details</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+

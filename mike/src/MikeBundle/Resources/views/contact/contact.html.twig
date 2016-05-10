@@ -1,0 +1,56 @@
+{% set pageTitle = 'Contact Mike' %}
+{% set section = 'contact' %}
+{% extends 'MikeBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="section page">
+
+        <div class="wrapper">
+            <h1>Contact</h1>
+
+        {% set notice = app.session.flashBag.get('notice')%}
+           {% if  notice == null %}
+               <p>I&rsquo;d love to hear from you! Complete the form to send an email.</p>
+           {% endif %}
+
+            {% for flash_message in notice %}
+                <p class="message">{{ flash_message }}</p>
+            {% endfor %}
+
+        {{ form_start(form) }}
+            <table>
+                <tr>
+                    <th>
+                        {{ form_label(form.name) }}
+                    </th>
+                    <td>
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        {{ form_label(form.email) }}
+                    </th>
+                    <td>
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        {{ form_label(form.message) }}
+                    </th>
+                    <td>
+                        {{ form_widget(form.message) }}
+                        {{ form_errors(form.message) }}
+                    </td>
+                </tr>
+
+            </table>
+            {#{{ form_row(form.submit, {'label':'Save'}) }}#}
+        {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

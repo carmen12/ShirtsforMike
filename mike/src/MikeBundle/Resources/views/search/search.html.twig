@@ -1,0 +1,40 @@
+{% set pageTitle = 'Search' %}
+{% set section = 'search' %}
+{% extends 'MikeBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="section shirts search page">
+
+        <div class="wrapper">
+            <h1>Search</h1>
+
+            <form method="get" action="./">
+                <input type="text" name="s" value="">
+                <input type="submit" value="Go">
+            </form>
+    {#Displaying the search term#}
+            {% if search_term is defined %}
+                <p class="note-designer">Search results for the -- <span style="color: red">{{ search_term }}</span> -- keyword:</p>
+            {% endif %}
+    {#If nothing matches the search term#}
+            {% if not_found is defined %}
+                <p class="note-designer">{{ not_found }}</p>
+            {% endif %}
+    {#Displaying the items that matches the search term #}
+            <ul class="products">
+                {% if products is defined %}
+                    {% for product in products %}
+                        <li>
+                            <a href="{{ path('shirt',{'id':product.sku}) }}">
+                                <img src="{{ asset(product.img)}}" >
+                                <p>View Details</p>
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% set pageTitle = 'Unique T-shirts designed by a frog' %}
+{% set section = 'home' %}
+{% extends 'MikeBundle::base.html.twig' %}
+
+    {% block body %}
+<div class="section banner">
+
+    <div class="wrapper">
+
+        <img class="hero" src="{{ asset('bundles/framework/images/img/mike-the-frog.png') }}" alt="Mike the Frog says:">
+        <div class="button">
+            <a href="{{ path('shirts') }}">
+                <h2>Hey, I&rsquo;m Mike!</h2>
+                <p>Check Out My Shirts</p>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="section shirts latest">
+
+    <div class="wrapper">
+
+        <h2>Mike&rsquo;s Latest Shirts</h2>
+
+        <ul class="products">
+            {#{{ dump(products) }}#}
+             {% for product in products %}
+                <li>
+                    <a href="{{ path('shirt',{'id':product.sku}) }}">
+                    <img src="{{ asset(product.img)}}" >
+                    <p>View Details</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+    {% endblock %}

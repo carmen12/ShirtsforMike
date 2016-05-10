@@ -1,0 +1,53 @@
+{% set pageTitle = 'Profile' %}
+{% set section = 'profile' %}
+{% extends 'MikeBundle::base.html.twig' %}
+
+{% block body %}
+
+    <div class="section page">
+
+        <div class="wrapper">
+             <h1>Profile:</h1>
+            <img style="float:left; height: 130px; width: 100px;" src="{{ app.user.path }}">
+            {{ dump(app) }}
+<form action="#">
+    <table>
+        <tr>
+            <th>
+                <label>Name:</label>
+            </th>
+            <td>
+                {{ app.user.username }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label>Email:</label>
+            </th>
+            <td>
+                {{ app.user.email }}
+            </td>
+        </tr>
+        {#<tr>#}
+            {#<th>#}
+                {#<label>Picture:</label>#}
+            {#</th>#}
+            {#<td>#}
+                {#<img src="{{ app.user.path }}" alt="">#}
+            {#</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<th>#}
+                {#{{ form_label(formRegister.plainPassword.second) }}#}
+            {#</th>#}
+            {#<td>#}
+                {#{{ form_widget(formRegister.plainPassword.second) }}#}
+                {#{{ form_errors(formRegister.plainPassword.second) }}#}
+            {#</td>#}
+        {#</tr>#}
+
+    </table>
+</form>
+        </div>
+    </div>
+{% endblock %}
