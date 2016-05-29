@@ -1,3 +1,3 @@
 # ShirtsforMike
 
-A PDO project.
+A Symfony project.
